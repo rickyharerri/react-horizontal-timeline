@@ -8,7 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack --config tools/webpack.config.prod.js",
     "build:demos": "cross-env NODE_ENV=production webpack --config tools/webpack.config.demos.js",
     "prepublish": "yarn build",
-    "lint": "./node_modules/.bin/eslint --config tools/lint-config.js src/ demos/demo-swipeable-views/HorizontalTimelineConfigurator.jsx",
+    "lint": "./node_modules/.bin/eslint --config tools/lint-config.js src/",
     "test": "jest"
   },
   "repository": {
@@ -58,7 +58,6 @@
     "file-loader": "^2.0.0",
     "html-loader": "^0.5.1",
     "jest": "^23.6.0",
-    "react-swipeable-views": "^0.13.0",
     "react-test-renderer": "^16.5.2",
     "react-transform-hmr": "^1.0.1",
     "regenerator-runtime": "^0.12.1",

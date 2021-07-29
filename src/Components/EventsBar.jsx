@@ -175,15 +175,14 @@ class EventsBar extends React.Component {
           width: `${this.props.width}px`,
           height: `${this.props.height}px`,
         }}
-        {...touchEvents}
+        // {...touchEvents}
       >
         <div
           className='events-wrapper'
           style={{
             position: 'relative',
             height: '100%',
-            margin: '0 40px',
-            overflow: 'hidden'
+            margin: '0 40px'
           }}
         >
           <Motion
@@ -209,12 +208,12 @@ class EventsBar extends React.Component {
                 fillingMotion={this.props.fillingMotion}
                 backgroundColor={this.props.styles.outline}
               />
-              <EventLine
+              {/* <EventLine
                 left={this.props.barPaddingLeft}
                 width={filledValue}
                 fillingMotion={this.props.fillingMotion}
                 backgroundColor={this.props.styles.foreground}
-              />
+              /> */}
               <Events
                 events={this.props.events}
                 selectedIndex={this.props.index}

@@ -13,6 +13,15 @@
  */
 export const daydiff = (first, second) => Math.round((second - first));
 
+export const numOfDayDiff = (date1, date2) => {
+  console.log('numOfDayDiff date1, date2-',date1, date2)
+  const diffTime = Math.abs(date2 - date1);
+  console.log('numOfDayDiff diffTime-',diffTime)
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+  console.log('numOfDayDiff diffDays-',diffDays)
+  return diffDays ;
+}
+
 
 /**
  * Takes a list of lists and zips them together (size should be the same).

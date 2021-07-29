@@ -9,7 +9,7 @@ import dimensions from 'react-dimensions';
 import EventsBar from './EventsBar';
 
 // Helpers and constansts
-import {zip, daydiff, cummulativeSeperation} from '../helpers';
+import {zip, numOfDayDiff, cummulativeSeperation} from '../helpers';
 import Constants from '../Constants';
 
 /**
@@ -36,7 +36,8 @@ class HorizontalTimeline extends React.Component {
     }
 
     // Convert the date strings to actual date objects
-    const dates = props.values.map((value) => new Date(value));
+    const dates = props.values.map((value) => new Date(value.date));
+    console.log('dates-',dates)
     // Calculate the distances for all events
     const distances = cummulativeSeperation(
       dates,
@@ -49,8 +50,10 @@ class HorizontalTimeline extends React.Component {
     // Convert the distances and dates to events
     const events = distances.map((distance, index) => ({
       distance,
-      label: props.getLabel(props.values[index], index),
-      date: props.values[index],
+      label: props.getLabel(props.values[index].date, index),
+      date: props.values[index].date,
+      todiff: props.values[index].to ? numOfDayDiff(new Date(props.values[index].date),new Date(props.values[index].to)) : 1,
+      type: props.values[index].type
     }));
 
     const visibleWidth = this.props.containerWidth - 80;

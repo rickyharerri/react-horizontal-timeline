@@ -6,7 +6,7 @@ import GameInfo from '../resources/content';
 
 // Directly importing the minified bootstrap css to avoid all the painful
 // steps it will take otherwise to get it to work.
-import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +18,8 @@ class App extends React.Component {
     this.data = GameInfo.map((game, index) => {
       return ({
         date: game.date,
+        type: game.type,
+        to: game.to,
         component: (
           <div className='container' key={index}>
             <h1>{ `The Elder Scrolls ${index + 1}:`}</h1>

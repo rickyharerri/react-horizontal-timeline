@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { cummulativeSeperation } from '../helpers';
 import TimelineDot from './TimelineDot';
+import TimelineDotBottom from './TimelineDotBottom';
+import TimelineDotTop from './TimelineDotTop';
 
 /**
  * The markup Information for all the events on the horizontal timeline.
@@ -18,10 +20,21 @@ const EventsBar = ({ events, selectedIndex, styles, handleDateClick, labelWidth 
     }}
   >
     {events.map((event, index) =>
-      <TimelineDot
+      event.type === "bottom" ? <TimelineDotBottom
+      distanceFromOrigin={event.distance}
+      label={event.label}
+      date={event.date}
+      index={index}
+      key={index}
+      onClick={handleDateClick}
+      selected={selectedIndex}
+      styles={styles}
+      labelWidth={labelWidth}
+    /> : <TimelineDotTop
         distanceFromOrigin={event.distance}
         label={event.label}
         date={event.date}
+        todiff={event.todiff}
         index={index}
         key={index}
         onClick={handleDateClick}
